@@ -33,7 +33,15 @@
     self.weatherForecasts = [NSMutableDictionary dictionary];
     self.weatherForecasts = [dataDictionary objectForKey:@"currently"];
     
-    NSLog(@"%@", self.weatherForecasts);
+//    NSLog(@"%@", self.weatherForecasts);
+    
+    self.currentTemperature = [self.weatherForecasts objectForKey:@"apparentTemperature"];
+    self.currentHumidity = [self.weatherForecasts objectForKey:@"humidity"];
+    self.currentPrecipProb = [self.weatherForecasts objectForKey:@"precipProbability"];
+    self.currentWeatherSummary = [self.weatherForecasts objectForKey:@"summary"];
+    self.currentWeatherIcon = [self.weatherForecasts objectForKey:@"icon"];
+    
+    NSLog(@"%@", self.currentTemperature);
 }
 
 - (void)didReceiveMemoryWarning {

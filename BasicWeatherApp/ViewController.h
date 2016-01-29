@@ -17,5 +17,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblWeatherSummary;
 @property (weak, nonatomic) IBOutlet UIImageView *imgWeatherIcon;
 
+@property (strong, nonatomic) NSNumber *currentTemperature;
+@property (strong, nonatomic) NSNumber *currentHumidity;
+@property (strong, nonatomic) NSNumber *currentPrecipProb;
+@property (strong, nonatomic) NSString *currentWeatherSummary;
+@property (strong, nonatomic) NSString *currentWeatherIcon;
+
 @end
 

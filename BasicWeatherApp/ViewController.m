@@ -28,7 +28,12 @@
     
     NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error: nil];
     
-    NSLog(@"%@", dataDictionary);
+//    NSLog(@"%@", dataDictionary);
+    
+    self.weatherForecasts = [NSMutableDictionary dictionary];
+    self.weatherForecasts = [dataDictionary objectForKey:@"currently"];
+    
+    NSLog(@"%@", self.weatherForecasts);
 }
 
 - (void)didReceiveMemoryWarning {

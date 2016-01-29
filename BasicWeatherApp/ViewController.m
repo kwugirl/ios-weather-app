@@ -43,11 +43,13 @@
     
 //    NSLog(@"%@", self.currentTemperature);
     
-    self.lblTemperature.text = [NSString stringWithFormat: @"%@", self.currentTemperature];
-    self.lblHumidity.text = [NSString stringWithFormat: @"%@", self.currentHumidity];
-    self.lblPrecipProb.text = [NSString stringWithFormat: @"%@", self.currentPrecipProb];
+    [self formatTemperature];
+    [self formatHumidity];
+    [self formatPrecipProb];
+
     self.lblWeatherSummary.text = [NSString stringWithFormat: @"%@", self.currentWeatherSummary];
-    NSLog(@"%@", self.currentWeatherIcon);
+    
+//    NSLog(@"%@", self.currentWeatherIcon);
     if ([self.currentWeatherIcon isEqualToString: @"clear-day"])
     {
         self.imgWeatherIcon.image = [UIImage imageNamed:@"clear-day"];
@@ -98,6 +100,24 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)formatTemperature
+{
+    int tempFloat = round([self.currentTemperature floatValue]);
+    self.lblTemperature.text = [NSString stringWithFormat: @"%d°", tempFloat];
+}
+
+- (void)formatHumidity
+{
+    int humidityFloat = round([self.currentHumidity floatValue] * 100);
+    self.lblHumidity.text = [NSString stringWithFormat: @"%d%@", humidityFloat, @"%"];
+}
+
+- (void)formatPrecipProb
+{
+    int precipFloat = round([self.currentPrecipProb floatValue]);
+    self.lblPrecipProb.text = [NSString stringWithFormat: @"%d%@", precipFloat, @"%"];
 }
 
 @end

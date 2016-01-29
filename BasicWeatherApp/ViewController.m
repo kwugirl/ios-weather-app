@@ -41,7 +41,58 @@
     self.currentWeatherSummary = [self.weatherForecasts objectForKey:@"summary"];
     self.currentWeatherIcon = [self.weatherForecasts objectForKey:@"icon"];
     
-    NSLog(@"%@", self.currentTemperature);
+//    NSLog(@"%@", self.currentTemperature);
+    
+    self.lblTemperature.text = [NSString stringWithFormat: @"%@", self.currentTemperature];
+    self.lblHumidity.text = [NSString stringWithFormat: @"%@", self.currentHumidity];
+    self.lblPrecipProb.text = [NSString stringWithFormat: @"%@", self.currentPrecipProb];
+    self.lblWeatherSummary.text = [NSString stringWithFormat: @"%@", self.currentWeatherSummary];
+    NSLog(@"%@", self.currentWeatherIcon);
+    if ([self.currentWeatherIcon isEqualToString: @"clear-day"])
+    {
+        self.imgWeatherIcon.image = [UIImage imageNamed:@"clear-day"];
+    }
+    else if ([self.currentWeatherIcon isEqualToString: @"clear-night"])
+    {
+        self.imgWeatherIcon.image = [UIImage imageNamed:@"clear-day"];
+    }
+    else if ([self.currentWeatherIcon isEqualToString: @"rain"])
+    {
+        self.imgWeatherIcon.image = [UIImage imageNamed:@"rain"];
+    }
+    else if ([self.currentWeatherIcon isEqualToString: @"snow"])
+    {
+        self.imgWeatherIcon.image = [UIImage imageNamed:@"snow"];
+    }
+    else if ([self.currentWeatherIcon isEqualToString: @"sleet"])
+    {
+        self.imgWeatherIcon.image = [UIImage imageNamed:@"sleet"];
+    }
+    else if ([self.currentWeatherIcon isEqualToString: @"wind"])
+    {
+        self.imgWeatherIcon.image = [UIImage imageNamed:@"wind"];
+    }
+    else if ([self.currentWeatherIcon isEqualToString: @"fog"])
+    {
+        self.imgWeatherIcon.image = [UIImage imageNamed:@"fog"];
+    }
+    else if ([self.currentWeatherIcon isEqualToString: @"cloudy"])
+    {
+        self.imgWeatherIcon.image = [UIImage imageNamed:@"cloudy"];
+    }
+    else if ([self.currentWeatherIcon isEqualToString: @"partly-cloudy-day"])
+    {
+        self.imgWeatherIcon.image = [UIImage imageNamed:@"cloudy-day"];
+    }
+    else if ([self.currentWeatherIcon isEqualToString: @"partly-cloudy-night"])
+    {
+        self.imgWeatherIcon.image = [UIImage imageNamed:@"cloudy-night"];
+    }
+    else
+    {
+        self.imgWeatherIcon.image = [UIImage imageNamed:@"default"];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
